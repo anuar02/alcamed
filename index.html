@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алькамед - Медицинское оборудование по всему Казахстану</title>
+    <!-- Feather Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            /* Primary Colors */
+            --primary-blue: #2563eb;
+            --primary-blue-light: #3b82f6;
+            --primary-blue-dark: #1d4ed8;
+            
+            /* Secondary Colors */
+            --secondary-teal: #0d9488;
+            --secondary-teal-light: #14b8a6;
+            --secondary-teal-dark: #0f766e;
+            
+            /* Accent Colors */
+            --accent-orange: #ea580c;
+            --accent-orange-light: #f97316;
+            
+            /* Neutral Colors */
+            --neutral-50: #f8fafc;
+            --neutral-100: #f1f5f9;
+            --neutral-200: #e2e8f0;
+            --neutral-300: #cbd5e1;
+            --neutral-400: #94a3b8;
+            --neutral-500: #64748b;
+            --neutral-600: #475569;
+            --neutral-700: #334155;
+            --neutral-800: #1e293b;
+            --neutral-900: #0f172a;
+            
+            /* Success & Error */
+            --success: #10b981;
+            --error: #ef4444;
+            
+            /* Spacing Scale */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-7: 1.75rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            --space-24: 6rem;
+            --space-32: 8rem;
+            
+            /* Typography Scale */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            --text-5xl: 3rem;
+            --text-6xl: 3.75rem;
+            --text-7xl: 4.5rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-3xl: 2rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        section {
+            scroll-margin-top: -100px; /* Adjust this value as needed */
+        }
+
+        /* Equipment Catalog Section - NEW */
+        .equipment-catalog {
+            padding: var(--space-32) 0;
+            background: linear-gradient(135deg, var(--neutral-50) 0%, #ffffff 100%);
+        }
+
+        .catalog-hero {
+            text-align: center;
+            margin-bottom: var(--space-16);
+        }
+
+        .equipment-catalog-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: var(--text-sm);
+            margin-top: var(--space-4);
+            padding: var(--space-2) 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .equipment-catalog-link:hover {
+            color: var(--primary-blue-dark);
+            border-bottom-color: var(--primary-blue);
+            transform: translateX(4px);
+        }
+
+        .equipment-catalog-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .equipment-catalog-link:hover svg {
+            transform: translateX(4px);
+        }
+
+        .pdf-download-card {
+            background: white;
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            box-shadow: var(--shadow-2xl);
+            border: 1px solid var(--neutral-200);
+            max-width: 600px;
+            margin: 0 auto var(--space-16);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .catalog-cta {
+            margin-top: var(--space-6);
+        }
+
+        .catalog-link-button {
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-orange-light));
+            color: white;
+            padding: var(--space-4) var(--space-8);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: var(--text-base);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .catalog-link-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--accent-orange-light), var(--accent-orange));
+        }
+
+        .catalog-link-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .pdf-download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-teal));
+        }
+
+        .pdf-download-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .pdf-preview {
+            display: flex;
+            align-items: center;
+            gap: var(--space-6);
+            margin-bottom: var(--space-6);
+        }
+
+        .pdf-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--error), #dc2626);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--text-2xl);
+            font-weight: 800;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pdf-features {
+            list-style: none;
+            margin-bottom: var(--space-8);
+        }
+
+        .pdf-features li {
+            padding: var(--space-3) 0;
+            color: var(--neutral-600);
+            position: relative;
+            padding-left: var(--space-8);
+            font-size: var(--text-base);
+        }
+
+        .pdf-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: var(--space-3);
+            width: 20px;
+            height: 20px;
+            background: var(--success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: var(--text-xs);
+        }
+
+        .pdf-download-button {
+            background: linear-gradient(135deg, var(--error), #dc2626);
+            color: white;
+            padding: var(--space-4) var(--space-8);
+            border: none;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: var(--text-base);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            box-shadow: var(--shadow-md);
+            width: 100%;
+            justify-content: center;
+        }
+
+        .pdf-download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+        }
+
+        .catalog-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .preview-item {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--neutral-200);
+            transition: all 0.3s ease;
+        }
+
+        .preview-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .preview-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-4);
+            box-shadow: var(--shadow-md);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--neutral-800);
+            overflow-x: hidden;
+            background: #ffffff;
+            font-size: var(--text-base);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: var(--space-3) var(--space-6);
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--neutral-200);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-5) 0;
+        }
+
+        .logo {
+            font-size: var(--text-2xl);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: var(--space-8);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--neutral-600);
+            font-weight: 500;
+            font-size: var(--text-base);
+            position: relative;
+            transition: all 0.3s ease;
+            padding: var(--space-2) 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+            color: white;
+            padding: var(--space-3) var(--space-6);
+            border: none;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: var(--text-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue));
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--neutral-50) 0%, #ffffff 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-top: var(--space-20);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.1) 0%, transparent 50%);
+            animation: heroGradient 20s ease-in-out infinite;
+        }
+
+        @keyframes heroGradient {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: var(--space-16);
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            padding: var(--space-8) 0;
+        }
+
+        .hero-text h1 {
+            font-size: var(--text-6xl);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--space-6);
+            color: var(--neutral-900);
+        }
+
+        .hero-text .highlight {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: var(--text-xl);
+            color: var(--neutral-600);
+            margin-bottom: var(--space-8);
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-4);
+            margin-bottom: var(--space-12);
+            flex-wrap: wrap;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--neutral-700);
+            padding: var(--space-3) var(--space-6);
+            border: 2px solid var(--neutral-300);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: var(--text-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-button:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: var(--space-8);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: var(--text-4xl);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: var(--space-1);
+        }
+
+        .stat-label {
+            font-size: var(--text-sm);
+            color: var(--neutral-500);
+            font-weight: 500;
+        }
+
+        /* Medical Visualization */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .medical-scene {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .medical-illustration {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: var(--shadow-2xl);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .medical-illustration::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .medical-illustration svg {
+            width: 90px;
+            height: 90px;
+            color: var(--primary-blue);
+            stroke-width: 2;
+            position: relative;
+            z-index: 3;
+        }
+
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-icon {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            animation: floatIcon 8s ease-in-out infinite;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .floating-icon svg {
+            width: 20px;
+            height: 20px;
+            color: var(--primary-blue);
+            stroke-width: 2;
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-icon:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-icon:nth-child(3) {
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+        .floating-icon:nth-child(4) {
+            bottom: 10%;
+            right: 15%;
+            animation-delay: 6s;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0px) scale(1); opacity: 0.8; }
+            50% { transform: translateY(-30px) scale(1.1); opacity: 1; }
+        }
+
+        /* Services Section */
+        .services {
+            padding: var(--space-32) 0;
+            background: #ffffff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-20);
+        }
+
+        .section-header h2 {
+            font-size: var(--text-5xl);
+            font-weight: 800;
+            color: var(--neutral-900);
+            margin-bottom: var(--space-4);
+        }
+
+        .section-header p {
+            font-size: var(--text-lg);
+            color: var(--neutral-600);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .service-card {
+            background: white;
+            padding: var(--space-8);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            border: 1px solid var(--neutral-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-teal));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+            border-color: var(--neutral-300);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-6);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+            stroke-width: 2;
+        }
+
+        .service-card h3 {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            color: var(--neutral-900);
+        }
+
+        .service-card p {
+            color: var(--neutral-600);
+            line-height: 1.7;
+            font-size: var(--text-base);
+        }
+
+        /* Medical Equipment Illustrations */
+        .equipment-gallery {
+            padding: var(--space-32) 0;
+            background: var(--neutral-50);
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-16);
+        }
+
+        .equipment-card {
+            background: white;
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            border: 1px solid var(--neutral-200);
+            position: relative;
+        }
+
+        .equipment-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .equipment-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-blue-light), var(--secondary-teal-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .equipment-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .equipment-svg {
+            width: 80px;
+            height: 80px;
+            color: white;
+            stroke-width: 1.5;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .equipment-info {
+            padding: var(--space-6);
+            text-align: center;
+        }
+
+        .equipment-info h3 {
+            font-size: var(--text-lg);
+            font-weight: 700;
+            margin-bottom: var(--space-3);
+            color: var(--neutral-900);
+        }
+
+        .equipment-info p {
+            color: var(--neutral-600);
+            font-size: var(--text-sm);
+            line-height: 1.6;
+        }
+
+        /* WhatsApp Integration */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-xl);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: whatsappPulse 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-button svg {
+            width: 32px;
+            height: 32px;
+            color: white;
+            fill: white;
+        }
+
+        @keyframes whatsappPulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .whatsapp-form-button {
+            background: #25D366;
+            color: white;
+            padding: var(--space-3) var(--space-6);
+            border: none;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: var(--text-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            box-shadow: var(--shadow-md);
+        }
+
+        .whatsapp-form-button:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .whatsapp-form-button svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            padding: var(--space-32) 0;
+            background: linear-gradient(135deg, var(--neutral-900) 0%, var(--neutral-800) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-choose::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 30% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(13, 148, 136, 0.1) 0%, transparent 50%);
+        }
+
+        .why-choose .section-header h2 {
+            color: white;
+        }
+
+        .why-choose .section-header p {
+            color: var(--neutral-300);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-8);
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: var(--space-8);
+            border-radius: var(--radius-2xl);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-6);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+
+        .feature-icon svg {
+            width: 32px;
+            height: 32px;
+            color: white;
+            stroke-width: 2;
+        }
+
+        .feature h3 {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            color: white;
+        }
+
+        .feature p {
+            color: var(--neutral-300);
+            line-height: 1.7;
+        }
+
+        /* Manufacturing Section */
+        .manufacturing {
+            padding: var(--space-32) 0;
+            background: var(--neutral-50);
+        }
+
+        .manufacturing-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-16);
+            align-items: center;
+        }
+
+        .manufacturing-text h2 {
+            font-size: var(--text-5xl);
+            font-weight: 800;
+            color: var(--neutral-900);
+            margin-bottom: var(--space-6);
+        }
+
+        .manufacturing-text p {
+            color: var(--neutral-600);
+            margin-bottom: var(--space-6);
+            font-size: var(--text-lg);
+            line-height: 1.7;
+        }
+
+        .manufacturing-features {
+            list-style: none;
+            margin-top: var(--space-8);
+        }
+
+        .manufacturing-features li {
+            padding: var(--space-4) 0;
+            color: var(--neutral-600);
+            position: relative;
+            padding-left: var(--space-10);
+            font-size: var(--text-base);
+            transition: all 0.3s ease;
+        }
+
+        .manufacturing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: var(--space-4);
+            width: 24px;
+            height: 24px;
+            background: var(--success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: var(--text-xs);
+        }
+
+        .manufacturing-features li:hover {
+            color: var(--neutral-800);
+            transform: translateX(8px);
+        }
+
+        .manufacturing-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .factory-illustration {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-orange-light));
+            border-radius: var(--radius-3xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-2xl);
+            position: relative;
+            animation: factoryPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes factoryPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .factory-illustration::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: var(--radius-xl);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .factory-illustration svg {
+            width: 80px;
+            height: 80px;
+            color: var(--accent-orange);
+            stroke-width: 2;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: var(--space-32) 0;
+            background: linear-gradient(135deg, var(--neutral-800) 0%, var(--neutral-900) 100%);
+            color: white;
+        }
+
+        .testimonials .section-header h2 {
+            color: white;
+        }
+
+        .testimonials .section-header p {
+            color: var(--neutral-300);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: var(--space-8);
+            border-radius: var(--radius-2xl);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: var(--space-4);
+            left: var(--space-6);
+            font-size: var(--text-6xl);
+            color: rgba(37, 99, 235, 0.3);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: var(--space-6);
+            font-size: var(--text-lg);
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+            margin-top: var(--space-6);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-blue-light);
+            font-size: var(--text-base);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: var(--space-32) 0;
+            background: #ffffff;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-16);
+        }
+
+        .contact-info h3 {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            margin-bottom: var(--space-8);
+            color: var(--neutral-900);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--space-6);
+            gap: var(--space-4);
+            padding: var(--space-6);
+            background: var(--neutral-50);
+            border-radius: var(--radius-xl);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            background: white;
+        }
+
+        .contact-item-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--text-base);
+            flex-shrink: 0;
+            font-weight: 600;
+        }
+
+        .contact-item-icon svg {
+            width: 18px;
+            height: 18px;
+            color: white;
+            stroke-width: 2;
+        }
+
+        .contact-form {
+            background: white;
+            padding: var(--space-10);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-2xl);
+            border: 1px solid var(--neutral-200);
+        }
+
+        .contact-form h3 {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            margin-bottom: var(--space-8);
+            color: var(--neutral-900);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-6);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--space-3);
+            font-weight: 600;
+            color: var(--neutral-700);
+            font-size: var(--text-base);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--space-4) var(--space-5);
+            border: 2px solid var(--neutral-200);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-base);
+            transition: all 0.3s ease;
+            background: var(--neutral-50);
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--neutral-900) 0%, var(--neutral-800) 100%);
+            color: white;
+            padding: var(--space-16) 0;
+            text-align: center;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            :root {
+                --text-6xl: 2.5rem;
+                --text-5xl: 2rem;
+                --text-4xl: 1.875rem;
+                --text-3xl: 1.5rem;
+                --space-32: 4rem;
+                --space-24: 4rem;
+                --space-20: 3rem;
+                --space-16: 2.5rem;
+                --space-12: 2rem;
+            }
+
+            .container {
+                padding: 10px var(--space-4);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: var(--space-8);
+            }
+
+            .hero-stats {
+                justify-content: center;
+                gap: var(--space-6);
+            }
+
+            .manufacturing-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-8);
+            }
+
+            .medical-scene {
+                width: 250px;
+                height: 250px;
+            }
+
+            .medical-illustration {
+                width: 200px;
+                height: 200px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button,
+            .secondary-button {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+
+            .factory-illustration {
+                width: 200px;
+                height: 200px;
+            }
+
+            .form-buttons {
+                flex-direction: column;
+            }
+
+            .whatsapp-form-button {
+                margin-left: 0;
+                margin-top: var(--space-4);
+            }
+        }
+
+        .nav-catalog-link {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light)) !important;
+            color: white !important;
+            padding: var(--space-2) var(--space-4) !important;
+            border-radius: var(--radius-lg) !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: var(--space-2) !important;
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
+            box-shadow: var(--shadow-sm) !important;
+            text-decoration: none !important;
+        }
+
+        .nav-catalog-link::after {
+            display: none !important;
+        }
+
+        .nav-catalog-link:hover {
+            background: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue)) !important;
+            color: white !important;
+            transform: translateY(-2px) !important;
+            box-shadow: var(--shadow-md) !important;
+        }
+
+        .nav-catalog-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation utilities */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .link-buttons {
+            display: flex;
+            gap: 10px;
+            a {
+                text-decoration: none;
+            }
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Алькамед</a>
+            <ul class="nav-links">
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#equipment">Оборудование</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#manufacturing">Производство</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+            <div class="link-buttons">
+                <a href="#contact" class="cta-button">Получить консультацию</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Комплексные решения для <span class="highlight">медицинских учреждений</span></h1>
+                    <p>12 лет опыта в поставке медицинского оборудования по всему Казахстану. Быстрая доставка, полная поддержка проектов от планирования до запуска.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="cta-button">Заказать оборудование</a>
+                        <a href="#services" class="secondary-button">Наши услуги</a>
+                            <a href="catalog.html" class="catalog-link-button">
+                                <i data-feather="file-text"></i>
+                                  Посмотреть полный каталог с ценами
+                            </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">лет опыта</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">проектов</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">поддержка</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="medical-scene">
+                        <div class="medical-illustration">
+                            <i data-feather="activity"></i>
+                        </div>
+                        <div class="floating-icons">
+                            <div class="floating-icon">
+                                <i data-feather="heart"></i>
+                            </div>
+                            <div class="floating-icon">
+                                <i data-feather="plus"></i>
+                            </div>
+                            <div class="floating-icon">
+                                <i data-feather="eye"></i>
+                            </div>
+                            <div class="floating-icon">
+                                <i data-feather="tool"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Наши услуги</h2>
+                <p>Полный спектр решений для медицинских учреждений любого масштаба с гарантией качества и профессиональной поддержкой</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i data-feather="home"></i>
+                    </div>
+                    <h3>Поставка оборудования</h3>
+                    <p>Комплексное оснащение медицинских учреждений современным оборудованием ведущих мировых производителей. Работаем с официальными дистрибьюторами и гарантируем подлинность продукции.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i data-feather="tool"></i>
+                    </div>
+                    <h3>Производство мебели</h3>
+                    <p>Изготовление медицинской мебели по индивидуальным проектам с учетом специфики вашего учреждения. Собственное производство с современным оборудованием.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i data-feather="truck"></i>
+                    </div>
+                    <h3>Быстрая доставка</h3>
+                    <p>Оперативная доставка по всему Казахстану с гарантией целостности и безопасности груза. Собственная логистическая служба и проверенные партнеры.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i data-feather="book"></i>
+                    </div>
+                    <h3>Обучение персонала</h3>
+                    <p>Профессиональное обучение медицинского персонала работе с новым оборудованием. Сертифицированные инструкторы и современные программы подготовки.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i data-feather="shield"></i>
+                    </div>
+                    <h3>Сертификация</h3>
+                    <p>Полное документальное сопровождение и сертификация всего поставляемого оборудования в соответствии с требованиями РК и международными стандартами.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i data-feather="clipboard"></i>
+                    </div>
+                    <h3>Управление проектами</h3>
+                    <p>Комплексное ведение проектов от планирования до полного запуска медицинского учреждения. Персональный менеджер и контроль на каждом этапе.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipment" class="equipment-gallery">
+        <div class="container">
+            <div class="section-header fade-in">
+                    <h2>Медицинское оборудование</h2>
+                    <p>Широкий ассортимент современного медицинского оборудования от ведущих мировых производителей</p>
+            </div>
+            <div class="equipment-grid">
+                <div class="equipment-card fade-in">
+                    <div class="equipment-image">
+                        <img class="equipment-svg" src="assets/icons/ultrasound.png" alt="УЗИ аппарат">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>УЗИ аппараты</h3>
+                        <p>Современные ультразвуковые сканеры с высоким разрешением изображения</p>
+                        <a href="catalog.html" class="equipment-catalog-link" data-category="diagnostic">
+                            Подробнее в каталоге <i data-feather="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="equipment-card fade-in">
+                    <div class="equipment-image">
+                        <img class="equipment-svg" src="assets/icons/x-rays.png" alt="УЗИ аппарат">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>Рентген оборудование</h3>
+                        <p>Цифровые рентгеновские системы с минимальной лучевой нагрузкой</p>
+                        <a href="catalog.html" class="equipment-catalog-link" data-category="diagnostic">
+                            Подробнее в каталоге <i data-feather="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="equipment-card fade-in">
+                    <div class="equipment-image">
+                        <img class="equipment-svg" src="assets/icons/operating-table.png" alt="УЗИ аппарат">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>Операционные столы</h3>
+                        <p>Многофункциональные столы с электроприводом и точным позиционированием</p>
+                        <a href="catalog.html" class="equipment-catalog-link" data-category="diagnostic">
+                            Подробнее в каталоге <i data-feather="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="equipment-card fade-in">
+                    <div class="equipment-image">
+                        <img class="equipment-svg" src="assets/icons/heart-rate.png" alt="УЗИ аппарат">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>ЭКГ аппараты</h3>
+                        <p>Портативные и стационарные электрокардиографы с автоматической интерпретацией</p>
+                        <a href="catalog.html" class="equipment-catalog-link" data-category="diagnostic">
+                            Подробнее в каталоге <i data-feather="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="equipment-card fade-in">
+                    <div class="equipment-image">
+                        <img class="equipment-svg" src="assets/icons/monitor.png" alt="УЗИ аппарат">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>Мониторы пациента</h3>
+                        <p>Системы непрерывного мониторинга жизненно важных показателей</p>
+                        <a href="catalog.html" class="equipment-catalog-link" data-category="diagnostic">
+                            Подробнее в каталоге <i data-feather="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="equipment-card fade-in">
+                    <div class="equipment-image">
+                        <img class="equipment-svg" src="assets/icons/medical.png" alt="УЗИ аппарат">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>Дефибрилляторы</h3>
+                        <p>Автоматические наружные дефибрилляторы и мониторы-дефибрилляторы</p>
+                        <a href="catalog.html" class="equipment-catalog-link" data-category="diagnostic">
+                            Подробнее в каталоге <i data-feather="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="about" class="why-choose">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Почему выбирают нас</h2>
+                <p>Надежность, скорость и качество — наши главные преимущества, подтвержденные годами успешной работы</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature fade-in">
+                    <div class="feature-icon">
+                        <i data-feather="zap"></i>
+                    </div>
+                    <h3>Быстрое решение задач</h3>
+                    <p>Оперативная обработка заявок и максимально короткие сроки поставки. Средний срок выполнения заказа — 7-14 дней.</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">
+                        <i data-feather="star"></i>
+                    </div>
+                    <h3>12 лет опыта</h3>
+                    <p>Многолетний опыт работы и глубокое понимание потребностей медицинских учреждений. Более 500 успешно реализованных проектов.</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">
+                        <i data-feather="globe"></i>
+                    </div>
+                    <h3>Международные партнеры</h3>
+                    <p>Официальное представительство ведущих мировых производителей медицинского оборудования. Прямые поставки без посредников.</p>
+                </div>
+                <div class="feature fade-in">
+                    <div class="feature-icon">
+                        <i data-feather="headphones"></i>
+                    </div>
+                    <h3>Полная поддержка</h3>
+                    <p>Сопровождение проекта от начала до полного завершения и запуска. Гарантийное и постгарантийное обслуживание.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="manufacturing" class="manufacturing">
+        <div class="container">
+            <div class="manufacturing-content">
+                <div class="manufacturing-text slide-in-left">
+                    <h2>Собственное производство</h2>
+                    <p>Мы производим медицинскую мебель высочайшего качества, соответствующую всем международным стандартам и требованиям медицинских учреждений.</p>
+                    <p>Наше производство оснащено современным оборудованием, что позволяет изготавливать продукцию любой сложности в кратчайшие сроки с соблюдением всех технических требований.</p>
+                    <ul class="manufacturing-features">
+                        <li>Индивидуальный подход к каждому проекту</li>
+                        <li>Использование только качественных материалов</li>
+                        <li>Соответствие медицинским стандартам</li>
+                        <li>Гарантия на всю продукцию до 5 лет</li>
+                        <li>Сервисное обслуживание по всему Казахстану</li>
+                        <li>Возможность модификации под специфические нужды</li>
+                    </ul>
+                </div>
+                <div class="manufacturing-visual slide-in-right">
+                    <div class="factory-illustration">
+                        <i data-feather="settings"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Отзывы клиентов</h2>
+                <p>Что говорят о нас медицинские учреждения Казахстана</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial fade-in">
+                    <div class="testimonial-text">
+                        Алькамед помог нам полностью оснастить новую клинику современным оборудованием. Профессиональный подход, качественное оборудование и отличный сервис. Все сроки были соблюдены, персонал прошел качественное обучение. Рекомендуем как надежного партнера!
+                    </div>
+                    <div class="testimonial-author">— Главврач городской больницы №1, Алматы</div>
+                </div>
+                <div class="testimonial fade-in">
+                    <div class="testimonial-text">
+                        Сотрудничаем с Алькамед уже 5 лет. Всегда быстрая доставка, качественная продукция и профессиональная поддержка. Особенно ценим их готовность решать нестандартные задачи и оперативность в работе. Очень довольны долгосрочным партнерством.
+                    </div>
+                    <div class="testimonial-author">— Директор медицинского центра "Здоровье", Нур-Султан</div>
+                </div>
+                <div class="testimonial fade-in">
+                    <div class="testimonial-text">
+                        Заказывали изготовление медицинской мебели по индивидуальным чертежам для нашего специализированного отделения. Изготовили точно по нашим требованиям, качество превосходное, сроки соблюдены. Спасибо за профессионализм и внимание к деталям!
+                    </div>
+                    <div class="testimonial-author">— Заведующий кардиологическим отделением, Шымкент</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Свяжитесь с нами</h2>
+                <p>Получите профессиональную консультацию и персональное предложение для вашего медицинского учреждения</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3>Контактная информация</h3>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i data-feather="phone"></i>
+                        </div>
+                        <div>
+                            <strong>Телефон:</strong><br>
+                            +7 (727) 000-00-00<br>
+                            +7 (700) 000-00-00
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i data-feather="mail"></i>
+                        </div>
+                        <div>
+                            <strong>Email:</strong><br>
+                            info@alkamed.kz<br>
+                            sales@alkamed.kz
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i data-feather="map-pin"></i>
+                        </div>
+                        <div>
+                            <strong>Адрес:</strong><br>
+                            г. Алматы, ул. Медицинская, 123<br>
+                            БЦ "Медплаза", офис 456
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i data-feather="clock"></i>
+                        </div>
+                        <div>
+                            <strong>Режим работы:</strong><br>
+                            Пн-Пт: 9:00-18:00<br>
+                            Сб: 10:00-15:00<br>
+                            Консультации: круглосуточно
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <h3>Получить консультацию</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Ваше имя *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Опишите ваши потребности в медицинском оборудовании, размер учреждения, планируемые сроки реализации проекта..."></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <a href="#" class="whatsapp-form-button" onclick="sendToWhatsApp(event)">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.479 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.462-.996-4.779-2.811-6.598-1.815-1.819-4.145-2.816-6.625-2.817-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.297-.458zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/>
+                                </svg>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Алькамед. Все права защищены. | Медицинское оборудование и комплексные решения по всему Казахстану | Лицензия №KZ123456789</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/77000000000?text=Здравствуйте! Интересует медицинское оборудование. Хотел бы получить консультацию." class="whatsapp-button" target="_blank">
+        <svg viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.479 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.462-.996-4.779-2.811-6.598-1.815-1.819-4.145-2.816-6.625-2.817-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.297-.458zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                
+                if (currentScrollY > lastScrollY) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const button = this.querySelector('.cta-button');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = 'Отправка...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = '✓ Отправлено!';
+                button.style.background = 'var(--success)';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    button.style.background = '';
+                    this.reset();
+                }, 2000);
+                
+                // Success notification
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--success);
+                    color: white;
+                    padding: 1rem 2rem;
+                    border-radius: var(--radius-lg);
+                    box-shadow: var(--shadow-xl);
+                    z-index: 10000;
+                    animation: slideIn 0.5s ease;
+                `;
+                notification.innerHTML = '✓ Спасибо за заявку! Мы свяжемся с вами в течение часа.';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 4000);
+            }, 2000);
+        });
+
+        // WhatsApp form submission
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            const form = document.querySelector('form');
+            const name = form.querySelector('#name').value;
+            const phone = form.querySelector('#phone').value;
+            const email = form.querySelector('#email').value;
+            const message = form.querySelector('#message').value;
+            
+            let whatsappMessage = `Здравствуйте! Хочу получить консультацию по медицинскому оборудованию.\n\n`;
+            whatsappMessage += `Имя: ${name}\n`;
+            whatsappMessage += `Телефон: ${phone}\n`;
+            if (email) whatsappMessage += `Email: ${email}\n`;
+            if (message) whatsappMessage += `Сообщение: ${message}\n`;
+            
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappUrl = `https://wa.me/77000000000?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            updateCounter();
+        }
+
+        // Stats animation
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const number = entry.target.querySelector('.stat-number');
+                    const value = number.textContent.replace('+', '');
+                    if (!isNaN(value)) {
+                        animateCounter(number, parseInt(value));
+                    }
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.stat').forEach(stat => {
+            statsObserver.observe(stat);
+        });
+
+        // Initialize Feather icons
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+
+        // Re-initialize icons after DOM changes
+        const reinitializeIcons = () => {
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+        };
+
+        // Call reinitialization after a short delay to ensure DOM is ready
+        setTimeout(reinitializeIcons, 100);
+
+        // Add CSS animation for notification
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
