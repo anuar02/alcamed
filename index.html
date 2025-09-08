@@ -1465,7 +1465,7 @@
                             <div class="stat-label">лет опыта</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number">2000+</div>
+                            <div class="stat-number">2000<span>+</span></div>
                             <div class="stat-label">проектов</div>
                         </div>
                         <div class="stat">
@@ -1631,8 +1631,31 @@
                         </a>
                     </div>
                 </div>
+                <div class="equipment-card fade-in">
+                    <div class="equipment-image">
+                        <img class="equipment-svg" src="assets/icons/blood.png" alt="УЗИ аппарат">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>Аппараты ИВЛ</h3>
+                        <p>Реанимационные и транспортные аппараты ИВЛ с основными режимами вентиляции и встроенным мониторингом.</p>
+                        <a href="catalog.html" class="equipment-catalog-link" data-category="diagnostic">
+                            Подробнее в каталоге <i data-feather="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="equipment-card fade-in">
+                    <div class="equipment-image">
+                        <img class="equipment-svg" src="assets/icons/gloves.png" alt="УЗИ аппарат">
+                    </div>
+                    <div class="equipment-info">
+                        <h3>Стерилизационное оборудование</h3>
+                        <p>Автоклавы, плазменные стерилизаторы, мойки-дезинфекторы и упаковочные машины для ЦСО.</p>
+                        <a href="catalog.html" class="equipment-catalog-link" data-category="diagnostic">
+                            Подробнее в каталоге <i data-feather="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
         </div>
     </section>
 
@@ -1711,19 +1734,16 @@
                     <div class="testimonial-text">
                         Алькамед помог нам полностью оснастить новую клинику современным оборудованием. Профессиональный подход, качественное оборудование и отличный сервис. Все сроки были соблюдены, персонал прошел качественное обучение. Рекомендуем как надежного партнера!
                     </div>
-                    <div class="testimonial-author">— Главврач городской больницы №1, Алматы</div>
                 </div>
                 <div class="testimonial fade-in">
                     <div class="testimonial-text">
                         Сотрудничаем с Алькамед уже 5 лет. Всегда быстрая доставка, качественная продукция и профессиональная поддержка. Особенно ценим их готовность решать нестандартные задачи и оперативность в работе. Очень довольны долгосрочным партнерством.
                     </div>
-                    <div class="testimonial-author">— Директор медицинского центра "Здоровье", Нур-Султан</div>
                 </div>
                 <div class="testimonial fade-in">
                     <div class="testimonial-text">
                         Заказывали изготовление медицинской мебели по индивидуальным чертежам для нашего специализированного отделения. Изготовили точно по нашим требованиям, качество превосходное, сроки соблюдены. Спасибо за профессионализм и внимание к деталям!
                     </div>
-                    <div class="testimonial-author">— Заведующий кардиологическим отделением, Шымкент</div>
                 </div>
             </div>
         </div>
@@ -1943,7 +1963,7 @@
             if (message) whatsappMessage += `Сообщение: ${message}\n`;
             
             const encodedMessage = encodeURIComponent(whatsappMessage);
-            const whatsappUrl = `https://wa.me/77000000000?text=${encodedMessage}`;
+            const whatsappUrl = `https://wa.me/77751608585?text=${encodedMessage}`;
             
             window.open(whatsappUrl, '_blank');
         }
