@@ -776,7 +776,10 @@
 <body>
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">Алькамед</a>
+            <div style="display: flex">
+                <img style="width: 70px; margin-right: 10px" src="assets/icons/alkamed-logo-cropped.jpeg">
+                <a href="#" class="logo">Алькамед</a>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html#services">Услуги</a></li>
                 <li><a href="index.html#equipment">Оборудование</a></li>
@@ -804,6 +807,40 @@
         <div class="container">
             <div class="catalog-grid" id="catalogGrid">
                 
+                <!-- Catalog Furniture -->
+                <div class="pdf-card fade-in" data-category="furniture">
+                    <div class="pdf-header">
+                        <div class="pdf-preview">
+                            <div class="pdf-icon furniture">PDF</div>
+                            <div class="pdf-info">
+                                <h3>Каталог тех. оборудования</h3>
+                                <div class="pdf-meta">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pdf-body">
+                        <p class="pdf-description">Каталог технологического оборудования.</p>
+                        <ul class="pdf-features">
+                            <li>Кухонное оборудование</li>
+                            <li>Спортивный инвентарь</li>
+                            <li>Металлобработка и
+                                деревообработка</li>
+                            <li>Оргтехника</li>
+                            <li>Оборудования для
+                                прачечных и химчисток</li>
+                        </ul>
+                    </div>
+                    <div class="pdf-footer">
+                        <div class="pdf-actions">
+                            <a href="#" class="download-button furniture" onclick="downloadPDF('Каталог мебель.pdf')">
+                                <i data-feather="download"></i>
+                                Скачать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Catalog Furniture -->
                 <div class="pdf-card fade-in" data-category="furniture">
                     <div class="pdf-header">
@@ -895,6 +932,37 @@
                     <div class="pdf-footer">
                         <div class="pdf-actions">
                             <a href="#" class="download-button license" onclick="downloadPDF('Лицензия фарм. деятельность.pdf')">
+                                <i data-feather="download"></i>
+                                Скачать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pdf-card fade-in" data-category="documents">
+                    <div class="pdf-header">
+                        <div class="pdf-preview">
+                            <div class="pdf-icon documents">PDF</div>
+                            <div class="pdf-info">
+                                <h3>Лицензии и Разрешения</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pdf-body">
+                        <p class="pdf-description">Полный пакет официальных документов, лицензий и разрешений для ведения медицинской деятельности.</p>
+
+                        <ul class="pdf-features">
+                            <li>Государственная лицензия на медицинскую деятельность</li>
+                            <li>Оптовая реализация изделий медицинского назначения</li>
+                            <li>Оптовая реализация медицинской техники</li>
+                            <li>Фармацевтическая деятельность</li>
+                            <li>Оптовая реализация лекарственных средств</li>
+                            <li>Розничная реализация лекарственных средств</li>
+                        </ul>
+                    </div>
+                    <div class="pdf-footer">
+                        <div class="pdf-actions">
+                            <a href="#" class="download-button company" onclick="downloadPDF('Лицензия_на_продажу_мед_изделья.pdf')">
                                 <i data-feather="download"></i>
                                 Скачать
                             </a>
